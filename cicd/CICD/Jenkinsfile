@@ -28,4 +28,10 @@ pipeline {
 		
 	}
 	
+	post {
+		always {
+			junit 'cicd/CICD/target/surefire-reports/*.xml'
+		}
+	}
+	
 }
