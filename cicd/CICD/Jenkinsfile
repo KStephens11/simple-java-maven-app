@@ -4,6 +4,11 @@ pipeline {
 	
 	stages {
 		
+		tools {
+        	jdk 'jdk-17'
+	        maven 'maven-3.9.0'
+    	}
+		
 		stage('Checkout') {
 			
 			steps {
