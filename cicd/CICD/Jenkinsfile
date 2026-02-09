@@ -26,6 +26,18 @@ pipeline {
 			}
 		}
 		
+		stage('UI Tests (Selenium)') {
+    		when {
+        		expression { return params.RUN_UI_TESTS }
+    		}	
+    		steps {
+				dir('cicd/CICD') {
+        			sh 'mvn -B verify -DskipUnitTests=true'
+        		}
+    		}
+		}
+		
+		
 	}
 	
 	post {
