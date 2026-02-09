@@ -7,6 +7,10 @@ pipeline {
         maven 'maven'
     }
     
+    environment {
+        GITHUB_TOKEN = credentials('github-token')
+    }
+    
     parameters {
 	    booleanParam(
 	        name: 'RUN_UI_TESTS',
@@ -44,6 +48,12 @@ pipeline {
         		}
     		}
 		}
+		
+        stage('Secure Step') {
+            steps {
+                sh 'echo "Token length is ${#GITHUB_TOKEN}"'
+            }
+    	}
 		
 		
 	}
