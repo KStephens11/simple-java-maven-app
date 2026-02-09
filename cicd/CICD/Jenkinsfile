@@ -1,5 +1,8 @@
 pipeline {
 	
+	archiveArtifacts allowEmptyArchive: true,
+    artifacts: 'cicd/CICD/target/screenshots/**'
+    
 	agent any
 	
 	tools {
