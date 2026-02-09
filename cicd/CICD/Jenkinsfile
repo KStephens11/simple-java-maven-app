@@ -49,9 +49,12 @@ pipeline {
 	}
 	
 	post {
-		always {
-			junit 'cicd/CICD/target/surefire-reports/*.xml'
-		}
+	    always {
+	        junit allowEmptyResults: true, testResults: '''
+	            cicd/CICD/target/surefire-reports/*.xml,
+	            cicd/CICD/target/failsafe-reports/*.xml
+	        '''
+	    }
 	}
 	
 }
